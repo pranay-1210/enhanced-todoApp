@@ -20,6 +20,14 @@ function App() {
     
   }
 
+  const deleteTodoItem = (todoId) => {
+    // console.log(`Delete Todo with id ${todoId}`);
+    setTodoItems(currentItems => {
+      return currentItems.filter(item => item.id !== todoId);
+    })
+
+  }
+
 
 
   return (
@@ -27,7 +35,7 @@ function App() {
     <center>      
       <AppName />
       <AddToDo addTodoItem={addToItem} />
-      <AllInOne todoItems={todoItems}/>
+      <AllInOne todoItems={todoItems} deleteTodoItem={deleteTodoItem}/>
     </center>
     </>
   )
