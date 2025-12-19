@@ -1,12 +1,18 @@
+import { TodoItemsContext } from '../store/TodoItemsContext';
 import TodoItem from './TodoItem'
-export function AllInOne({todoItems,deleteTodoItem}) {
+import {useContext} from 'react';
+
+
+export function AllInOne() {
+
+  const {todoItems} = useContext(TodoItemsContext);
     
 
   return (
     <>
       {todoItems.map((item) => (
         <TodoItem
-          key={item.id} id={item.id} todoText={item.todoText} todoDate={item.todoDate} deleteTodoItem={deleteTodoItem}/>
+          key={item.id} id={item.id} todoText={item.todoText} todoDate={item.todoDate}/>
       ))}
 
     </> 

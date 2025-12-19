@@ -1,9 +1,11 @@
+import { TodoItemsContext } from "../store/TodoItemsContext";
 import Button from "./Button";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 
-export function AddToDo({addTodoItem}) {
+export function AddToDo() {
   const todoTextInput = useRef();
   const todoDateInput = useRef();
+  const {addTodoItem} = useContext(TodoItemsContext);
 
   const addHandler = () => {
     // console.log("Trying to Add Button");

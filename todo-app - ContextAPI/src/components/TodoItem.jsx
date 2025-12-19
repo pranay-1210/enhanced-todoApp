@@ -1,6 +1,10 @@
+import { TodoItemsContext } from "../store/TodoItemsContext";
 import Button from "./Button";
+import {useContext} from 'react';
  
-const TodoItem = ({ id, todoText, todoDate, deleteTodoItem }) => {
+const TodoItem = ({ id, todoText, todoDate}) => {
+  
+  const {deleteTodoItem} = useContext(TodoItemsContext);
 
   return (
     <div className="container">
