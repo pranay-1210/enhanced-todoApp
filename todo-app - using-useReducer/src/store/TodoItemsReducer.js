@@ -1,22 +1,18 @@
-const TodoItemsReducer = (currentTodoItems, action) => {
+const TodoItemsReducer = (currentItems, action) => {
   switch (action.type) {
-    case "ADD_ITEM":
-      return [
-        ...currentTodoItems,
-        {
-          id: action.payload.todoText,
-          todoText: action.payload.todoText,
-          todoDate: action.payload.todoDate,
-        },
-      ];
+    case "ADD_ITEM": {
+      const todoText = action.payload.todoText;
+      const todoDate = action.payload.todoDate;
+      return [...currentItems, { id: todoText, todoText, todoDate }];
+    }
 
     case "DELETE_ITEM":
-      return currentTodoItems.filter(
+      return currentItems.filter(
         (item) => item.id !== action.payload.todoId
       );
 
     default:
-      return currentTodoItems;
+      return currentItems;
   }
 };
 
